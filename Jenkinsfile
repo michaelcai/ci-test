@@ -4,7 +4,6 @@ pipeline {
     stage('') {
       steps {
         sh 'echo "hello"'
-        setGitHubPullRequestStatus()
       }
     }
   }
