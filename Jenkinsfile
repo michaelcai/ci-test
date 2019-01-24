@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('Test') {
       steps {
-        sh 'echo "hello"'
+        sh 'CI=true npm test'
       }
     }
   }
