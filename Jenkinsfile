@@ -16,6 +16,11 @@ pipeline {
         sh 'yarn build'
       }
     }
+    stage('Finish') {
+      steps {
+        setGitHubPullRequestStatus()
+      }
+    }
   }
   tools {
     nodejs 'node'
