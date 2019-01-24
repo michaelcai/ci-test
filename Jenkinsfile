@@ -1,7 +1,7 @@
 pipeline {
   agent none
 
-  tools (nodejs 'NodeJS-10.13.0')
+  tools (nodejs 'node')
 
   stages {
     stage('Prepare') {
