@@ -3,14 +3,15 @@ pipeline {
   stages {
     stage('Test') {
       agent {
-        node {
-          label '10.13.0'
+        docker {
+          image 'node:10-alpine'
+          args '-p 3000:3000'
         }
 
       }
       steps {
-        sh '''yarn
-CI=true yarn test'''
+        sh '''npm install
+CI=true npm test'''
       }
     }
   }
