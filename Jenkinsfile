@@ -1,10 +1,30 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'node:10-alpine'
+    }
+
+  }
   stages {
-    stage('') {
+    stage('Prepare') {
       steps {
-        sh 'echo "hello"'
+        sh '''npm i -g yarn
+yarn'''
       }
     }
+    stage('Test') {
+      steps {
+        sh 'yarn test'
+      }
+    }
+    stage('Build') {
+      steps {
+        sh 'yarn build'
+      }
+    }
+  }
+  environment {
+    CI = 'true'
+    HOME = '.'
   }
 }
