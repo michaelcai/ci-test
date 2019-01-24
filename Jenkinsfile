@@ -8,18 +8,22 @@ pipeline {
   stages {
     stage('Prepare') {
       steps {
-        sh '''sudo npm install -g yarn
-yarn'''
+        sh 'npm install'
       }
     }
     stage('Test') {
       steps {
-        sh 'yarn test'
+        sh 'npm test'
       }
     }
     stage('Build') {
       steps {
         sh 'yarn build'
+      }
+    }
+    stage('') {
+      steps {
+        setGitHubPullRequestStatus(state: 'SUCCESS')
       }
     }
   }
