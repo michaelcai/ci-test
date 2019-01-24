@@ -16,6 +16,17 @@ pipeline {
         sh 'npm test'
       }
     }
+    stage('Build') {
+      steps {
+        sh 'yarn build'
+      }
+    }
+    stage('') {
+      steps {
+        setGitHubPullRequestStatus(state: 'SUCCESS')
+        master
+      }
+    }
   }
   environment {
     CI = 'true'
