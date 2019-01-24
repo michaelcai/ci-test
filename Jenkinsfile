@@ -21,11 +21,6 @@ pipeline {
         sh 'yarn build'
       }
     }
-    stage('') {
-      steps {
-        setGitHubPullRequestStatus(state: 'SUCCESS')
-      }
-    }
   }
   environment {
     CI = 'true'
