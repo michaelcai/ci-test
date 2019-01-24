@@ -24,6 +24,7 @@ pipeline {
     stage('') {
       steps {
         setGitHubPullRequestStatus(state: 'SUCCESS')
+        master
       }
     }
   }
