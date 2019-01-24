@@ -1,9 +1,11 @@
 pipeline {
   agent none
+
+  tools (nodejs 'NodeJS-10.13.0')
+
   stages {
     stage('Prepare') {
       steps {
-        tool 'NodeJS-10.13.0'
         sh 'yarn'
       }
     }
