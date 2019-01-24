@@ -1,10 +1,5 @@
 pipeline {
   agent none
-
-  tools { 
-    nodejs "node"
-  }
-  
   stages {
     stage('Prepare') {
       steps {
@@ -22,9 +17,10 @@ pipeline {
       }
     }
   }
+  tools {
+    nodejs 'node'
+  }
   environment {
     CI = 'true'
-    HOME = '.'
-    npm_config_cache = 'npm-cache'
   }
 }
