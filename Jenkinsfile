@@ -1,16 +1,10 @@
 pipeline {
-  agent {
-    docker {
-      image 'node:10-alpine'
-    }
-
-  }
+  agent none
   stages {
     stage('Prepare') {
       steps {
-        sh '''npm config set registry https://registry.npmjs.org/ 
-npm i -g yarn
-yarn'''
+        tool 'NodeJS-10.13.0'
+        sh 'yarn'
       }
     }
     stage('Test') {
