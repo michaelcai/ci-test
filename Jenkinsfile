@@ -1,19 +1,14 @@
 pipeline {
-  agent {
-    docker {
-      image 'node:10-alpine'
-    }
-
-  }
+  agent any
   stages {
     stage('Prepare') {
       steps {
-        sh 'npm install'
+        sh 'yarn'
       }
     }
     stage('Test') {
       steps {
-        sh 'npm test'
+        sh 'yarn test'
       }
     }
     stage('Build') {
@@ -21,15 +16,11 @@ pipeline {
         sh 'yarn build'
       }
     }
-    stage('') {
-      steps {
-        setGitHubPullRequestStatus(state: 'SUCCESS')
-        master
-      }
-    }
+  }
+  tools {
+    nodejs 'node'
   }
   environment {
     CI = 'true'
-    HOME = '.'
   }
 }
