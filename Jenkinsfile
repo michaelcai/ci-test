@@ -8,12 +8,13 @@ pipeline {
   stages {
     stage('Prepare') {
       steps {
-        sh 'npm install'
+        sh '''npm i -g yarn
+yarn'''
       }
     }
     stage('Test') {
       steps {
-        sh 'npm test'
+        sh 'yarn test'
       }
     }
     stage('Build') {
@@ -25,5 +26,6 @@ pipeline {
   environment {
     CI = 'true'
     HOME = '.'
+    npm_config_cache = 'npm-cache'
   }
 }
