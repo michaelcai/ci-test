@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Prepare') {
       steps {
-        sh '''npm i -g yarn
+        sh '''npm config set registry https://registry.npmjs.org/ 
+npm i -g yarn
 yarn'''
       }
     }
