@@ -4,7 +4,7 @@ pipeline {
     stage('Test') {
       agent {
         node {
-          label 'NodeJS-10.13.0'
+          label '10.13.0'
         }
 
       }
