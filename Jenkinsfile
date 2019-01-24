@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Finish') {
       steps {
-        setGitHubPullRequestStatus(state: 'SUCCESS', message: 'Complete', context: 'jobContext')
+        echo 'Success'
       }
     }
   }
